@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:if="${activeTab == 'users'}" id="dashboardUsers" th:fragment="users">
+        <h1>User Management</h1>
+
+		<div class="container-fluid">
+            
+			<!-- user edit result message -->
+			<div th:switch="${editResult}">
+			    <div th:case="'success'"> 
+			        <div class="alert alert-success alert-dismissible">
+			        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					   Updated Successfully.
+			        </div>
+			    </div>
+			    <div th:case="'failure'"> 
+			        <div class="alert alert-danger alert-dismissible">
+			        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					   Updating Failed.
+			        </div>
+			    </div>
+			</div>
+            
+            <table class="table table-striped" id="dataTable">
+                <thead>
+                    <tr>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Activated</th>
+                        <th scope="col">Date Created</th>
+                        <th scope="col">Bio</th>
+                        <th scope="col">Roles</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user:${users}">
+                        <td>
+                            <div class="media-heading">
+		                        <a class="user-title" th:href="@{/user/{userId}(userId=${user.id})}" th:text="${user.username}">username</a>
+		                    </div>
+                        </td>
+                        <td th:text="${user.email}"></td>
+                        <td th:text="${user.activated}"></td>
+                        <td th:text="${user.dateFormat()}"></td>
+                        <td th:text="${user.bio}"></td>
+                        <td th:text="${user.roles}"></td>
+                        <td>
+                            <div class="media-left media-middle">
+                                <button type="button" class="btn btn-primary editUserButton" data-toggle="modal" th:attr="data-user-id=${user.id}">Edit</button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="media-left media-middle">
+                                <button type="button" class="btn btn-danger deleteUserButton" data-toggle="modal" 
+                                th:attr="data-user-id=${user.id}, 
+                                data-user-username=${user.username}, 
+                                data-user-email=${user.email},
+                                data-user-date=${user.dateCreated}">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+	    </div>
+    </div>
+</body>
+</html>

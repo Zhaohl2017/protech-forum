@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+    <!-- user edit -->
+    <div id="userEditModal" th:fragment="userEditModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	    <div class="modal-dialog modal-lg" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	               <h4 class="modal-title" id="myModalLabel">Edit User</h4>
+	            </div>
+	            <div class="modal-body">
+	                <div class="container-fluid">
+						<form th:action="@{/user/edit(tab=${tab}, start=${start}, end=${end})}" th:object="${userForm}" method="post">
+	                        <input hidden="true" th:field="*{userId}" id="userId" type="text"/>
+	                        <div class="row form-group">
+	                            Username：
+	                            <input th:field="*{username}" id="userName" type="text" class="form-control" placeholder="Username"/>
+	                        </div>
+							<div class="row form-group">
+	                            Email：
+	                            <input th:field="*{email}" id="email" type="text" class="form-control" placeholder="Email"/>
+	                        </div>
+	                        <div class="row form-group">
+	                            Activated
+	                            <input th:field="*{activated}" id="activated" type="text" class="form-control" placeholder="Activated"/>
+	                        </div>
+	                        <div class="row form-group">
+	                            Date：
+	                            <input th:field="*{dateCreated}" id="dateCreated" type="text" class="form-control" placeholder="Date"/>
+	                        </div>
+							<div class="row form-group">
+	                            Bio
+	                            <input th:field="*{bio}" id="bio" type="text" class="form-control" placeholder="Bio"/>
+	                        </div>
+							<div class="row form-group">
+	                            Roles：
+	                            <input th:field="*{roles}" id="roles" type="text" class="form-control" placeholder="Roles"/>
+	                        </div>
+	                        <div class="modal-footer">
+	                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                           <button class="btn btn-primary" type="submit">Save</button>
+	                        </div>
+	                    </form>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	
+	<!-- delete user -->
+	
+	<div id="userDeleteModal" th:fragment="userDeleteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+	            <div class="modal-body">
+	                <div class="alert alert-danger" role="alert">
+	                   <strong>Warning!</strong> Please confirm to delete the user.
+	                </div>
+	               <div class="container-fluid">
+		                <div class="row form-group">
+		                   <p id="userId"></p>
+		                   <p id="userUsername"></p>
+		                   <p id="userEmail"></p>
+		                   <p id="userDate"></p>
+		                </div>
+                    </div>
+	            </div>
+	            <div class="modal-footer">
+				   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				   <button id="confirmDeleteButton" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+				</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- message modal -->
+    
+    <div id="userMessageModal" th:fragment="userMessageModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="messageText" class="alert" role="alert">
+                       <strong id="strongText">Successfully Deleted!</strong> The user you selected have been successfully deleted.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                   <button type="button" class="btn btn-success refreshCurrPage" data-dismiss="modal">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

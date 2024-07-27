@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/head :: head">
+</head>
+<!-- modal -->
+<script src="custom/dashboard-modal.js"></script>
+<script src="custom/dashboard-modal-u.js"></script>
+<!-- bootstrap-select -->
+<link rel="stylesheet" href="/bootstrap-select/css/bootstrap-select.min.css">
+<script src="/bootstrap-select/js/bootstrap-select.min.js"></script>
+<script src="/bootstrap-select/js/i18n/defaults-en_US.min.js"></script>
+<!-- date range picker -->
+<script src="/daterangepicker/moment.min.js"></script>
+<link rel="stylesheet" href="/daterangepicker/daterangepicker.css">
+<script src="/daterangepicker/daterangepicker.js"></script>
+<script src="/custom/daterangepicker.js"></script>
+<!-- chart js -->
+<script src="/chartjs/Chart.min.js"></script>
+
+<body>
+    <div class="panel panel-default panel-bg">
+        <div th:replace="fragments/header :: header"></div>
+        <div class="container">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+	                    <div class="col-md-2">
+			                <ul class="nav nav-pills nav-stacked button-active">
+				                <li role="presentation" th:class="${activeTab == 'stats'} ? 'active' : ''">
+				                    <a href="/dashboard?tab=stats">Statistics</a>
+				                </li>
+				                <li role="presentation" th:class="${activeTab == 'posts'} ? 'active' : ''">
+				                    <a href="/dashboard?tab=posts">Posts</a>
+				                </li>
+								<li role="presentation" th:class="${activeTab == 'users'} ? 'active' : ''">
+								    <a href="/dashboard?tab=users">Users</a>
+								</li>
+								<li role="presentation" th:class="${activeTab == 'categories'} ? 'active' : ''">
+								    <a href="/dashboard?tab=categories">Categories</a>
+								</li>
+								<li role="presentation" th:class="${activeTab == 'settings'} ? 'active' : ''">
+								    <a href="/dashboard?tab=settings">Settings</a>
+								</li>
+			                </ul>
+	                    </div>
+	                    <div class="col-md-10">
+                            
+                            <!-- include all dash board fragments -->                            
+                            <div th:replace="fragments/dashboard-posts :: posts"></div>
+                            <div th:replace="fragments/dashboard-stats :: stats"></div>
+                            <div th:replace="fragments/dashboard-users :: users"></div>
+                            <div th:replace="fragments/dashboard-categories :: categories"></div>
+                            
+                            <!-- post edit modal -->                            
+                            <div th:replace="fragments/dashboard-modal :: postEditModal"></div>
+                            
+                            <!-- post delete modal -->
+                            <div th:replace="fragments/dashboard-modal :: postDeleteModal"></div>
+                            
+                            <!-- post delete success modal -->
+                            <div th:replace="fragments/dashboard-modal :: messageModal"></div>
+
+                            <!-- user modals -->                            
+                            <div th:replace="fragments/dashboard-modal-u :: userEditModal"></div>
+                            <div th:replace="fragments/dashboard-modal-u :: userDeleteModal"></div>
+                            <div th:replace="fragments/dashboard-modal-u :: userMessageModal"></div>
+                            
+	                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>
