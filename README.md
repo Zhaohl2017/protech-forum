@@ -81,14 +81,14 @@ Server can be accessed on http://localhost:8081.
 
 # Overview 整体架构图
 ### Forum Functional Overview 整体功能架构图
-![](doc/Forum-Functional-Overview.pdf)
+![](doc/Forum Functional Overview.jpeg)
 
 ### Forum Development Overview 整体开发架构图
-![](doc/Forum-Development-Overview (Explanations).pdf)
+![](doc/Forum Development Overview.jpeg)
 
 # Database Schema 数据库设计
 ### ER Digram ER模型
-![](db/erd-forum.pdf)
+![](db/erd-forum.png)
 
 # Screenshots 截图
 ### Homepage Visitor 游客主页
