@@ -79,6 +79,17 @@ cd forum
 ```
 Server can be accessed on http://localhost:8081.
 
+# Overview 整体架构图
+### Forum Functional Overview 整体功能架构图
+![](doc/screenshots/Forum Functional Overview.pdf)
+
+### Forum Development Overview 整体开发架构图
+![](doc/screenshots/Forum Development Overview (Explanations).pdf)
+
+# Database Schema 数据库设计
+### ER Digram ER模型
+![](db/screenshots/erd-forum.pdf)
+
 # Screenshots 截图
 ### Homepage Visitor 游客主页
 ![](doc/screenshots/homepage.png)
