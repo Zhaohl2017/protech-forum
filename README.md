@@ -100,8 +100,11 @@ Server can be accessed on http://localhost:8081.
 ### View Posts 浏览帖子
 ![](doc/screenshots/view-post.png)
 
-### Registration 注册论坛会员
+### Registry 注册论坛会员
 ![](doc/screenshots/user-registry.png)
+
+### Registry Success 注册论坛会员成功
+![](doc/screenshots/user-registry-cuccess.png)
 
 ### Login 登录论坛
 ![](doc/screenshots/login.png)
@@ -140,7 +143,7 @@ Server can be accessed on http://localhost:8081.
 ![](doc/screenshots/user-edit.png)
 
 ### Delete User Confirmation 删除用户确认
-![](doc/screenshots/user-edit.png)
+![](doc/screenshots/user-delete-confirm.png)
 
 ### Edit Admin Profile 修改管理员资料
 ![](doc/screenshots/profile-edit-admin.png)
