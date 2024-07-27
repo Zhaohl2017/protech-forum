@@ -4,7 +4,7 @@
 - Java: 22
 - Spring Boot 3.3.2
 - Spring Security 6
-- Mybatis(mybatis-spring-boot-starter 3.0.3)
+- Mybatis (mybatis-spring-boot-starter 3.0.3)
 - MySQL: 8.0.39
 
 ### Frontend 前端
@@ -73,7 +73,7 @@ Email verification NOT up yet.
 
 ### Run through VS Code:
 ```
-git clone https://github.com/hailong/protech/forum.git
+git clone https://github.com/Zhaohl2017/protech-forum.git
 cd forum
 ./mvnw spring-boot:run
 ```
